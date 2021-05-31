@@ -5,19 +5,17 @@ import java.sql.SQLException;
 public class Conexion {
 
     //Método para conectar a la BD
-    public Connection get_connection() {
+    public Connection obtenerConexion() {
 
         //Objeto de conexión
-        Connection conection = null;
+        Connection objConexion = null;
         try {
-            conection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mensajes_app", "root", "");
-            if(conection != null) {
-                System.out.println("Conexión exitosa");
-            }
-        } catch(SQLException e) {
+            objConexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/mensajes_app", "root", "");
+
+        } catch (SQLException e) {
             System.out.println(e);
 
         }
-        return conection;
+        return objConexion;
     }
 }

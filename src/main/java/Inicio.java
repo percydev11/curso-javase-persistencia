@@ -1,17 +1,44 @@
 import java.sql.Connection;
+import java.util.Scanner;
 
 public class Inicio {
 
     public static void main(String[] args) {
 
-        //Prueba de conexión a la BD
-        Conexion conexion = new Conexion();
+        //Menu
+        Scanner sc = new Scanner(System.in);
+        int opcion = 0;
+        do {
+            System.out.println("-----------------------");
+            System.out.println("Aplicación de mensajes");
+            System.out.println("1. Crear mensaje");
+            System.out.println("2. Listar mensaje");
+            System.out.println("3. Edtar mensaje");
+            System.out.println("4. Eliminar mensaje");
+            System.out.println("5. Salir de la aplicación");
 
-        try (Connection cnx = conexion.get_connection()) {
+            //Leer opción ingresada por el usuario
+            opcion = sc.nextInt();
 
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+            switch (opcion) {
+                case 1:
+                    ServicioMensaje.crearMensaje();
+                    break;
+                case 2:
+                    ServicioMensaje.listarMensaje();
+                    break;
+                case 3:
+                    ServicioMensaje.editarMensaje();
+                    break;
+                case 4:
+                    ServicioMensaje.borrarMensaje();
+                    break;
+                default:
+                    break;
+            }
 
+        } while (opcion != 5);
+
+        sc.close();
     }
 }
