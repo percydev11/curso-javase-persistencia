@@ -54,11 +54,51 @@ public class MensajeDAO {
     }
 
 
-    public static void borrarMensajeDb(int id_mensaje) {
+    public static void borrarMensajeDb(int idMensaje) {
+        Conexion objConexion = new Conexion();
+        try (Connection conexion = objConexion.obtenerConexion()) {
+            PreparedStatement ps = null;
 
+            try {
+                String query = "DELETE FROM mensajes WHERE id_mensaje = ?";
+                ps = conexion.prepareStatement(query);
+                ps.setInt(1, idMensaje);
+                int contFilasAfectadas = ps.executeUpdate();
+                if (contFilasAfectadas != 0) {
+                    System.out.println("El mensaje ha sido borrado exitosamente");
+                } else {
+                    System.out.println("El mensaje no fue encontrado en la base de datos");
+                }
+            } catch (SQLException e) {
+                System.out.println(e);
+                System.out.println("No se pudo borrar el mensaje");
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+
+        }
     }
 
     public static void actualizarMensajeDb(Mensaje mensaje) {
 
+        Conexion objConexion = new Conexion();
+        try (Connection conexion = objConexion.obtenerConexion()) {
+            PreparedStatement ps = null;
+            try {
+                String query = "UPDATE mensajes SET mensaje = ? WHERE id_mensaje = ?";
+                ps = conexion.prepareStatement(query);
+                ps.setString(1, mensaje.getMensaje());
+                ps.setInt(2, mensaje.getIdMensaje());
+                ps.executeUpdate();
+                System.out.println("El mensaje ha sido actualizado exitosamente");
+
+            } catch (SQLException ex) {
+                System.out.println(ex);
+                System.out.println("No se pudo actualizar el mensaje");
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
     }
 }
