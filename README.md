@@ -1,4 +1,6 @@
 # curso-javase-persistencia
 Curso de Java SE Persistencia de Datos
 
- Platzimensajes, un programa de envío, edición y eliminación de mensajes tipo Twitter haciendo persistencia de datos con Mysql. Y usando como lenguaje de programación Java.
+Proyecto realizado Platzi Mensajes
+
+Es un programa de consola que permite  enviar, editar y eliminar mensajes tipo Twitter; haciendo persistencia de datos con MySQL y usando Java como lenguaje de programacíon.
