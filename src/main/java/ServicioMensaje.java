@@ -17,6 +17,7 @@ public class ServicioMensaje {
     }
 
     public static void listarMensaje() {
+        System.out.println("Lista de mensajes");
         MensajeDAO.leerMensajeDb();
 
     }

@@ -15,7 +15,8 @@ public class Inicio {
             System.out.println("2. Listar mensaje");
             System.out.println("3. Eliminar mensaje");
             System.out.println("4. Edtar mensaje");
-            System.out.println("5. Salir de la aplicación");
+            System.out.println("5. Listar usuarios");
+            System.out.println("6. Salir de la aplicación");
 
             //Leer opción ingresada por el usuario
             opcion = sc.nextInt();
@@ -29,16 +30,18 @@ public class Inicio {
                     break;
                 case 3:
                     ServicioMensaje.borrarMensaje();
-
                     break;
                 case 4:
                     ServicioMensaje.editarMensaje();
+                    break;
+                case 5:
+                    ServicioUsuario.listaUsuario();
                     break;
                 default:
                     break;
             }
 
-        } while (opcion != 5);
+        } while (opcion != 6);
 
         sc.close();
     }
