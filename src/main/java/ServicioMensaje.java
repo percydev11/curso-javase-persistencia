@@ -42,7 +42,6 @@ public class ServicioMensaje {
         Mensaje actualizacion = new Mensaje();
         actualizacion.setIdMensaje(idMensaje);
         actualizacion.setMensaje(nuevoMensaje);
-
         MensajeDAO.actualizarMensajeDb(actualizacion);
     }
 

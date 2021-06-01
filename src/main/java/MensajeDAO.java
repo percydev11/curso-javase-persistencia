@@ -91,12 +91,10 @@ public class MensajeDAO {
                 ps.setInt(2, mensaje.getIdMensaje());
                 ps.executeUpdate();
                 System.out.println("El mensaje ha sido actualizado exitosamente");
-
             } catch (SQLException ex) {
                 System.out.println(ex);
                 System.out.println("No se pudo actualizar el mensaje");
             }
-
         } catch (SQLException e) {
             System.out.println(e);
         }
